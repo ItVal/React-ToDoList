@@ -36,7 +36,7 @@ function TodoList() {
             placeholder="Add Task" 
             onChange={(e) => handleChangeTodoTitle(e.target.value)} />
 
-            <button type="button" onClick={() => { addTodo(todoTitle); }} >Ajouter</button>
+            <button type="button" onClick={() => { addTodo(todoTitle); setTodoTitle('')}} >Ajouter</button>
 
 
             {taskList.map((todo, index) =>
