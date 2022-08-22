@@ -3,11 +3,12 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import Todolist from './Components/Todolist'
 
+
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <Todolist />
+
   )
 }
 

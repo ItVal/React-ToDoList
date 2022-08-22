@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState} from "react";
 
 function TodoList() {
     const [taskList, setTaskList] = useState([])
@@ -11,6 +11,7 @@ function TodoList() {
     const addTodo = (title) => {
         todolist.push(title)
         setTaskList(todolist)
+        
     }
 
     const handleChangeTodoTitle = (value) => {
@@ -26,11 +27,17 @@ function TodoList() {
         todolist.splice(index, 1, value)
         setTaskList(todolist)
     }
+  
 
     return (
         <div>
-            <input type='text' value={todoTitle} placeholder="Add Task" onChange={(e) => handleChangeTodoTitle(e.target.value)} />
-            <button type="button" onClick={() => { addTodo(todoTitle); }} >Ajouter</button>
+            <input 
+            type='text' 
+            value={todoTitle} 
+            placeholder="Add Task" 
+            onChange={(e) => handleChangeTodoTitle(e.target.value)} />
+
+            <button type="button" onClick={() => { addTodo(todoTitle); setTodoTitle('')}} >Ajouter</button>
 
 
             {taskList.map((todo, index) =>
