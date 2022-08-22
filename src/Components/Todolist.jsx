@@ -10,7 +10,7 @@ function TodoList() {
     const [todoTitle, setTodoTitle] = useState('')
     const [valueUpdate, setValueUpdate] = useState('')
     const [isFormUpdate, setIsFormUpdate] = useState(false)
-    const [position,setPosition] = useState();
+    const [numero,setNumero] = useState();
 
     const addTodo = (title) => {
         todolist.push(title)
@@ -49,11 +49,11 @@ function TodoList() {
                     <div className="flex justify-center gap-4 hover:bg-blue-500 mt-2 text-left">
                         <p>{index + 1}. {todo}</p>
                         <button onClick={() => deleteTask(index)}>{<MdDelete/>}</button>
-                        <button onClick={() => setIsFormUpdate(true)}>{<FaEdit/>}</button>
+                        <button onClick={() =>{ setIsFormUpdate(true);setNumero(index)}}>{<FaEdit/>}</button>
                     </div>
                     <hr />
                     {
-                        isFormUpdate && 
+                        isFormUpdate && index === numero &&
                         <div>
                             <input type='text' value={valueUpdate} placeholder="modifier" onChange={(e) => setValueUpdate(e.target.value)} className="w-5/6 h-8 m-3 outline-none  text-gray-900"/>
                             <button type="button" onClick={() => upDateTask(index, valueUpdate)} className="text-gray-100 m-3 h-5">{<FaEdit/>}</button>
