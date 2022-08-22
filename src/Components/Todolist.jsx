@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../Components/toDoList.css'
 
 function TodoList() {
     const [taskList, setTaskList] = useState([])
@@ -29,7 +30,7 @@ function TodoList() {
 
     return (
         <div>
-            <input type='text' value={todoTitle} placeholder="Add Task" onChange={(e) => handleChangeTodoTitle(e.target.value)} />
+            <input type='text' value={todoTitle} placeholder="Add Task" onChange={(e) => handleChangeTodoTitle(e.target.value)} className='inputText' />
             <button type="button" onClick={() => { addTodo(todoTitle); }} >Ajouter</button>
 
 
