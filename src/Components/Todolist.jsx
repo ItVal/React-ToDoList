@@ -9,9 +9,9 @@ function TodoList() {
     const [todoTitle, setTodoTitle] = useState('')
     const [valueUpdate, setValueUpdate] = useState('')
     const [isFormUpdate, setIsFormUpdate] = useState(false)
+    const [position,setPosition] = useState();
 
     const addTodo = (title) => {
-
         todolist.push(title)
         setTaskList(todolist)
     }
@@ -53,6 +53,7 @@ function TodoList() {
                             <input type='text' value={valueUpdate} placeholder="modifier" onChange={(e) => setValueUpdate(e.target.value)} className="w-5/6 h-8 m-3 outline-none  text-gray-900"/>
                             <button type="button" onClick={() => upDateTask(index, valueUpdate)} className="text-gray-100 m-3 h-5">{<FaEdit/>}</button>
                         </div>
+
                     }
                 </div>
             )}
