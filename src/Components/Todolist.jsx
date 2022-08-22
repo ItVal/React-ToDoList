@@ -40,7 +40,7 @@ function TodoList() {
             type='text' 
             value={todoTitle} 
             placeholder="Add Task" 
-
+            ref={netoyerInput}
             onChange={(e) => handleChangeTodoTitle(e.target.value)} />
 
             <button type="button" onClick={() => { addTodo(todoTitle); }} >Ajouter</button>
