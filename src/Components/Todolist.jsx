@@ -1,8 +1,6 @@
-
 import { useState } from "react";
 import {FaPlus,FaEdit} from 'react-icons/fa';
 import {MdDelete} from 'react-icons/md'
-
 
 function TodoList() {
     const [taskList, setTaskList] = useState([])
@@ -17,7 +15,6 @@ function TodoList() {
         setTaskList(todolist)
         
     }
-
     const handleChangeTodoTitle = (value) => {
         setTodoTitle(value)
     }
@@ -26,14 +23,12 @@ function TodoList() {
         todolist.splice(index, 1)
         setTaskList(todolist)
     }
-
     const upDateTask = (index, value) => {
         todolist.splice(index, 1, value)
         setTaskList(todolist)
         setIsFormUpdate(false)
     }
   
-
     return (
 
         <div className="bg-blue-600 w-3/6 rounded-sm shadow-lg">
