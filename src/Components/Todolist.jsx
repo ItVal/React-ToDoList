@@ -1,4 +1,7 @@
 import { useState } from "react";
+import {FaPlus,FaEdit} from 'react-icons/fa';
+import {MdDelete} from 'react-icons/md'
+
 
 function TodoList() {
     const [taskList, setTaskList] = useState([])
@@ -25,25 +28,31 @@ function TodoList() {
     const upDateTask = (index, value) => {
         todolist.splice(index, 1, value)
         setTaskList(todolist)
+        setIsFormUpdate(false)
     }
 
     return (
-        <div>
-            <input type='text' value={todoTitle} placeholder="Add Task" onChange={(e) => handleChangeTodoTitle(e.target.value)} />
-            <button type="button" onClick={() => { addTodo(todoTitle); }} >Ajouter</button>
-
-
+        <div className="bg-blue-600 w-3/6 rounded-sm shadow-lg">
+           
+                <input type='text' value={todoTitle} placeholder="Nouvelle Tache" onChange={(e) => handleChangeTodoTitle(e.target.value)} 
+                className="w-5/6 h-8 m-3 outline-none text-xl text-gray-900 rounded-sm"/>
+                <button type="button" onClick={() => { addTodo(todoTitle); }} className="text-gray-100 m-3 h-5">{<FaPlus size={20}/>}</button>
+                
+                <h1 className="text-red-400">Mes Taches</h1>
             {taskList.map((todo, index) =>
-                <div key={index}>
-                    <p>{index + 1}. {todo}</p>
-                    <button onClick={() => deleteTask(index)}>Supprimer</button>
-                    <button onClick={() => setIsFormUpdate(true)}>Modifier</button>
-
+                <div key={index} className="gap-6 ">
+                    <div className="flex justify-center gap-4 hover:bg-blue-500 mt-2 text-left">
+                        <p>{index + 1}. {todo}</p>
+                        <button onClick={() => deleteTask(index)}>{<MdDelete/>}</button>
+                        <button onClick={() => setIsFormUpdate(true)}>{<FaEdit/>}</button>
+                    </div>
+                    <hr />
                     {
-                        isFormUpdate && <>
-                            <input type='text' value={valueUpdate} placeholder="Add Task" onChange={(e) => setValueUpdate(e.target.value)} />
-                            <button type="button" onClick={() => upDateTask(index, valueUpdate)} >Modifier</button>
-                        </>
+                        isFormUpdate && 
+                        <div>
+                            <input type='text' value={valueUpdate} placeholder="modifier" onChange={(e) => setValueUpdate(e.target.value)} className="w-5/6 h-8 m-3 outline-none  text-gray-900"/>
+                            <button type="button" onClick={() => upDateTask(index, valueUpdate)} className="text-gray-100 m-3 h-5">{<FaEdit/>}</button>
+                        </div>
                     }
                 </div>
             )}
