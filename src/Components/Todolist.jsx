@@ -27,6 +27,7 @@ function TodoList() {
         todolist.splice(index, 1, value)
         setTaskList(todolist)
         setIsFormUpdate(false)
+        setValueUpdate('')
     }
   
     return (
