@@ -7,6 +7,13 @@ function TodoList() {
     const [valueUpdate, setValueUpdate] = useState('')
     const [isFormUpdate, setIsFormUpdate] = useState(false)
 
+    const netoyerInput = useRef(null);
+
+    useEffect(() => {
+        netoyerInput.current.focus();
+    })
+
+
     const addTodo = (title) => {
 
         todolist.push(title)
