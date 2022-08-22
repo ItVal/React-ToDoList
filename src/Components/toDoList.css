@@ -3,3 +3,7 @@
     height: 30px;
     border-radius: 40px;
 }
+.btnSupprimer, .btnModifier{
+    width: 60px;
+    border: 2px solid red;
+}

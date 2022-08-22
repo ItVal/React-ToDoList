@@ -31,19 +31,19 @@ function TodoList() {
     return (
         <div>
             <input type='text' value={todoTitle} placeholder="Add Task" onChange={(e) => handleChangeTodoTitle(e.target.value)} className='inputText' />
-            <button type="button" onClick={() => { addTodo(todoTitle); }} >Ajouter</button>
+            <button type="button" onClick={() => { addTodo(todoTitle); }} className='btnAjouter' >Ajouter</button>
 
 
             {taskList.map((todo, index) =>
                 <div key={index}>
                     <p>{index + 1}. {todo}</p>
-                    <button onClick={() => deleteTask(index)}>Supprimer</button>
-                    <button onClick={() => setIsFormUpdate(true)}>Modifier</button>
+                    <button onClick={() => deleteTask(index)} className='btnSupprimer'>Supprimer</button>
+                    <button onClick={() => setIsFormUpdate(true)} className='btnModifier'>Modifier</button>
 
                     {
                         isFormUpdate && <>
                             <input type='text' value={valueUpdate} placeholder="Add Task" onChange={(e) => setValueUpdate(e.target.value)} />
-                            <button type="button" onClick={() => upDateTask(index, valueUpdate)} >Modifier</button>
+                            <button type="button" onClick={() => upDateTask(index, valueUpdate)} className='btnModifier'>Modifier</button>
                         </>
                     }
                 </div>
