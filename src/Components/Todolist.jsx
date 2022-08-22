@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState} from "react";
 
 function TodoList() {
     const [taskList, setTaskList] = useState([])
@@ -7,17 +7,10 @@ function TodoList() {
     const [valueUpdate, setValueUpdate] = useState('')
     const [isFormUpdate, setIsFormUpdate] = useState(false)
 
-    const netoyerInput = useRef(null);
-
-    useEffect(() => {
-        netoyerInput.current.focus();
-    })
-
-
     const addTodo = (title) => {
-
         todolist.push(title)
         setTaskList(todolist)
+        
     }
 
     const handleChangeTodoTitle = (value) => {
@@ -33,6 +26,7 @@ function TodoList() {
         todolist.splice(index, 1, value)
         setTaskList(todolist)
     }
+  
 
     return (
         <div>
@@ -40,7 +34,6 @@ function TodoList() {
             type='text' 
             value={todoTitle} 
             placeholder="Add Task" 
-            ref={netoyerInput}
             onChange={(e) => handleChangeTodoTitle(e.target.value)} />
 
             <button type="button" onClick={() => { addTodo(todoTitle); }} >Ajouter</button>
