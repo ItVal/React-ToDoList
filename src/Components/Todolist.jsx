@@ -6,9 +6,9 @@ function TodoList() {
     const [todoTitle, setTodoTitle] = useState('')
     const [valueUpdate, setValueUpdate] = useState('')
     const [isFormUpdate, setIsFormUpdate] = useState(false)
+    const [position,setPosition] = useState();
 
     const addTodo = (title) => {
-
         todolist.push(title)
         setTaskList(todolist)
     }
@@ -37,12 +37,12 @@ function TodoList() {
                 <div key={index}>
                     <p>{index + 1}. {todo}</p>
                     <button onClick={() => deleteTask(index)}>Supprimer</button>
-                    <button onClick={() => setIsFormUpdate(true)}>Modifier</button>
+                    <button onClick={() => {setIsFormUpdate(true);setPosition(index)}}>Modifier</button>
 
                     {
-                        isFormUpdate && <>
-                            <input type='text' value={valueUpdate} placeholder="Add Task" onChange={(e) => setValueUpdate(e.target.value)} />
-                            <button type="button" onClick={() => upDateTask(index, valueUpdate)} >Modifier</button>
+                        isFormUpdate && index===position && <>
+                            <input type='text' value={valueUpdate} placeholder={todo} onChange={(e) => setValueUpdate(e.target.value)} />
+                            <button type="button" onClick={() => {upDateTask(index, valueUpdate);setIsFormUpdate(false)}} >Modifier</button>
                         </>
                     }
                 </div>
