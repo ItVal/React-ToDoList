@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import {FaPlus,FaEdit} from 'react-icons/fa';
 import {MdDelete} from 'react-icons/md'
@@ -14,6 +15,7 @@ function TodoList() {
     const addTodo = (title) => {
         todolist.push(title)
         setTaskList(todolist)
+        
     }
 
     const handleChangeTodoTitle = (value) => {
@@ -30,8 +32,10 @@ function TodoList() {
         setTaskList(todolist)
         setIsFormUpdate(false)
     }
+  
 
     return (
+
         <div className="bg-blue-600 w-3/6 rounded-sm shadow-lg">
            
                 <input type='text' value={todoTitle} placeholder="Nouvelle Tache" onChange={(e) => handleChangeTodoTitle(e.target.value)} 
@@ -39,6 +43,7 @@ function TodoList() {
                 <button type="button" onClick={() => { addTodo(todoTitle); }} className="text-gray-100 m-3 h-5">{<FaPlus size={20}/>}</button>
                 
                 <h1 className="text-red-400">Mes Taches</h1>
+
             {taskList.map((todo, index) =>
                 <div key={index} className="gap-6 ">
                     <div className="flex justify-center gap-4 hover:bg-blue-500 mt-2 text-left">
