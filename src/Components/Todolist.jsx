@@ -40,7 +40,7 @@ function TodoList() {
            
                 <input type='text' value={todoTitle} placeholder="Nouvelle Tache" onChange={(e) => handleChangeTodoTitle(e.target.value)} 
                 className="w-5/6 h-8 m-3 outline-none text-xl text-gray-900 rounded-sm"/>
-                <button type="button" onClick={() => { addTodo(todoTitle); }} className="text-gray-100 m-3 h-5">{<FaPlus size={20}/>}</button>
+                <button type="button" onClick={() => { addTodo(todoTitle); setTodoTitle('')}} className="text-gray-100 m-3 h-5">{<FaPlus size={20}/>}</button>
                 
                 <h1 className="text-red-400">Mes Taches</h1>
 
