@@ -50,7 +50,7 @@ function TodoList() {
         {<FaPlus size={20} />}
       </button>
 
-      <h1 className="text-red-400">Mes Taches</h1>
+      <h1 className="text-red-400">Mes Tâches</h1>
 
       {taskList.map((todo, index) => (
         <div key={index} className="gap-6 ">
