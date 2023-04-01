@@ -30,7 +30,7 @@ function TodoList() {
   };
 
   return (
-    <div className="bg-blue-600 w-3/6 rounded-sm shadow-lg">
+    <div className="bg-blue-100 w-3/6 rounded-lg shadow-lg">
       <input
         type="text"
         value={todoTitle}
@@ -50,7 +50,7 @@ function TodoList() {
         {<FaPlus size={20} />}
       </button>
 
-      <h1 className="text-red-400">Mes Tâches</h1>
+      <h1 className="text-black shadow-sm">Mes Tâches</h1>
 
       {taskList.map((todo, index) => (
         <div key={index} className="gap-6 ">
